@@ -1,18 +1,12 @@
 #! /bin/bash
 
-export AnException=100
-export AnotherException=101
+wdfilter=''
+echo 'type your word'
+read wdfilter
 
-
-try( 
-    var =` grep ^......$ Nwords | tr '[:lower:]' '[:upper:]' | uniq > 5words`
-    echo $var
+var =`grep ^......$ words | tr '[:lower:]' '[:upper:]' | uniq > 5words`
     # set +e
-    echo "finnished"
-)
-catch||{
-    
-}
+echo "$var"  
 # catch
 # (
 #     echo "Error in $_EXEPTION__SOURCE__ at line: $__EXEPTION__LINE__!"
@@ -26,4 +20,5 @@ catch||{
 # l5 = 
 # filterout = 
 
-# wfilter=`grep A..N. 5words | grep -v N | grep -v G | grep A | grep -v A.... | column`
+wfilter=`grep ${wdfilter} 5words | grep -v N | grep -v G | grep A | grep -v A.... | column`
+echo $wfilter
